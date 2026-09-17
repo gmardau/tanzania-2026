@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanzania · Kilimanjaro + Safari + Zanzibar · Dec 14 – Jan 2</title>
+<style>
+  :root{
+    --ink:#0f1b2d; --ink-soft:#3a4a61; --mist:#eef3f8; --line:#dde6f0;
+    --sky1:#1e3a5f; --sky2:#2d5a8c; --glacier:#7fd3e8; --snow:#f7fbff;
+    --sun:#f4a94b; --alert:#e5674f; --cool:#4a90c2; --cold:#5b6ee1;
+    --savanna:#c8862b; --acacia:#6f8f3f;
+    --card:#ffffff; --shadow:0 6px 24px rgba(15,27,45,.08); --radius:16px;
+    --columbia:#3457d5; --decathlon:#0f9d94; --me:#d9633b; --other:#7a5cc4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--mist); line-height:1.55; -webkit-font-smoothing:antialiased;}
+  body.safari{background:linear-gradient(180deg,#f4ebdf 0%,#ece7df 50%,#e8e6e2 100%);background-attachment:fixed}
+  body.prep{background:#eef2f1}
+  body.zanzibar{background:linear-gradient(180deg,#e6f4f3 0%,#eef3ee 60%,#efeee7 100%);background-attachment:fixed}
+  .wrap{max-width:1020px;margin:0 auto;padding:0 20px}
+  [hidden]{display:none !important}
+
+  /* HERO */
+  .hero{position:relative;color:#fff;text-align:center;padding:70px 20px 88px;overflow:hidden;
+    background:linear-gradient(180deg,#0b1d33 0%,var(--sky1) 45%,var(--sky2) 100%);transition:background .5s}
+  body.safari .hero{background:linear-gradient(180deg,#3a2c14 0%,#8a5a1e 55%,#c8862b 100%)}
+  body.prep .hero{background:linear-gradient(180deg,#10241f 0%,#1d5a4f 55%,#2f8f83 100%)}
+  body.zanzibar .hero{background:linear-gradient(180deg,#062a3a 0%,#0e6d78 50%,#28b0a6 100%)}
+  .hero .peak,.hero .savannah,.hero .beach,.hero .journey{position:absolute;left:0;right:0;bottom:-1px;width:100%;opacity:.9;display:none}
+  body.kili .hero .peak{display:block}
+  body.safari .hero .savannah{display:block}
+  body.zanzibar .hero .beach{display:block}
+  body.prep .hero .journey{display:block}
+  .hero h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:800;letter-spacing:-.02em;position:relative;z-index:2}
+  .hero .sub{font-size:1.05rem;opacity:.92;margin-top:10px;position:relative;z-index:2}
+  .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px;position:relative;z-index:2}
+  .badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+    padding:7px 15px;border-radius:999px;font-size:.85rem;font-weight:600;backdrop-filter:blur(4px)}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;flex-direction:column;gap:9px;padding:11px 20px}
+  .tripbar{display:flex;gap:8px;flex-wrap:wrap}
+  .trip{cursor:pointer;border:1px solid var(--line);background:var(--card);padding:9px 18px;border-radius:999px;
+    font-weight:800;font-size:.95rem;font-family:inherit;color:var(--ink-soft);transition:.2s;display:flex;align-items:center;gap:8px}
+  .trip:hover{border-color:var(--cool)}
+  .trip.active{background:var(--sky1);color:#fff;border-color:var(--sky1)}
+  body.safari .trip.active{background:var(--savanna);border-color:var(--savanna)}
+  body.prep .trip.active{background:#2f8f83;border-color:#2f8f83}
+  body.zanzibar .trip.active{background:#12a6a0;border-color:#12a6a0}
+  .trip small{font-weight:600;opacity:.8;font-size:.78em}
+  .seclinks{display:flex;gap:6px;overflow-x:auto}
+  .seclinks a{white-space:nowrap;text-decoration:none;color:var(--ink-soft);font-weight:600;font-size:.88rem;
+    padding:7px 13px;border-radius:999px;transition:.2s}
+  .seclinks a:hover{background:var(--mist);color:var(--ink)}
+
+  section{padding:50px 0;scroll-margin-top:104px}
+  h2{font-size:1.7rem;font-weight:800;letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+  h2 .dot{width:10px;height:10px;border-radius:50%;background:var(--sun)}
+  body.safari h2 .dot{background:var(--savanna)}
+  body.prep h2 .dot{background:#2f8f83}
+  body.zanzibar h2 .dot{background:#12a6a0}
+  .lead{color:var(--ink-soft);margin-bottom:26px;max-width:72ch}
+
+  /* CARDS (routes & parks) */
+  .cards{display:grid;gap:20px}
+  .cards.two{grid-template-columns:1fr 1fr}
+  .cards.multi{grid-template-columns:repeat(2,1fr)}
+  .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;
+    border:1px solid var(--line);display:flex;flex-direction:column}
+  .card .top{padding:20px 20px 15px;background:linear-gradient(135deg,var(--sky2),var(--cool))}
+  body.safari .card .top{background:linear-gradient(135deg,var(--savanna),var(--acacia))}
+  .card .top h3{color:#fff;font-size:1.3rem;font-weight:800}
+  .card .top .tag{color:#f3f7fb;font-size:.84rem;font-weight:600;opacity:.95}
+  .card .body{padding:16px 20px 20px;flex:1}
+  .kv{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:.9rem}
+  .kv:last-of-type{border-bottom:none}
+  .kv span:first-child{color:var(--ink-soft)}
+  .kv span:last-child{font-weight:700;text-align:right}
+  .note{margin-top:12px;font-size:.86rem;color:var(--ink-soft);background:var(--mist);padding:11px 13px;border-radius:12px}
+  .pick{display:inline-block;margin-top:12px;font-size:.77rem;font-weight:800;color:#177a4c;background:#e3f6ec;padding:4px 10px;border-radius:999px}
+
+  /* TEMPS */
+  .zones{display:flex;flex-direction:column;gap:12px}
+  .zone{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+    padding:16px 18px;display:grid;grid-template-columns:190px 1fr;gap:18px;align-items:center}
+  .zone .name{font-weight:800}
+  .zone .alt{font-size:.82rem;color:var(--ink-soft)}
+  .zbars{display:flex;flex-direction:column;gap:9px}
+  .brow{display:grid;grid-template-columns:50px 1fr 110px;gap:10px;align-items:center}
+  .blab{font-size:.74rem;font-weight:800}
+  .blab.d{color:var(--sun)} .blab.n{color:var(--cold)}
+  .brange{font-size:.83rem;font-weight:700;text-align:right}
+  .bar{position:relative;height:20px;border-radius:7px;background:var(--mist);overflow:hidden}
+  .bar .fill{position:absolute;top:0;bottom:0;border-radius:7px;opacity:.92}
+  .legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:20px;font-size:.85rem;color:var(--ink-soft)}
+  .legend b{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
+  .summit-alert{margin-top:18px;border-radius:14px;padding:18px 20px;display:flex;gap:14px;align-items:center;color:#fff;
+    background:linear-gradient(135deg,#2a2f6b,#5b6ee1)}
+  .summit-alert.warm{background:linear-gradient(135deg,#8a5a1e,#c8862b)}
+  .summit-alert.sea{background:linear-gradient(135deg,#0e7d78,#28b0a6)}
+  .summit-alert .ico{font-size:1.8rem} .summit-alert b{font-weight:800}
+
+  /* CLOTHING */
+  .brandkey{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0 22px;font-size:.82rem;font-weight:700}
+  .brandkey span{display:inline-flex;align-items:center;gap:7px;color:var(--ink-soft)}
+  .brandkey i{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+  .tab{cursor:pointer;border:1px solid var(--line);background:var(--card);padding:10px 18px;border-radius:999px;
+    font-weight:700;font-size:.92rem;font-family:inherit;color:var(--ink-soft);transition:.2s}
+  .tab:hover{border-color:var(--cool)}
+  .tab.active{background:var(--sky1);color:#fff;border-color:var(--sky1)}
+  body.safari .tab.active{background:var(--savanna);border-color:var(--savanna)}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+  .layer{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:18px}
+  .layer.summit{border-color:#c9cdf5;background:linear-gradient(180deg,#fbfbff,#fff)}
+  .layer .lh{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .layer h4{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cool);font-weight:800}
+  .layer.summit h4{color:var(--cold)}
+  .layer .need{font-size:.95rem;font-weight:700;margin:2px 0 12px}
+  .layer .sfl{font-size:.68rem;font-weight:800;color:var(--cold);background:#eceffe;padding:2px 8px;border-radius:999px}
+  .picks{display:flex;flex-direction:column;gap:11px;border-top:1px dashed var(--line);padding-top:12px}
+  .brandrow{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+  .brandtag{align-self:flex-start;font-size:.63rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em;
+    color:#fff;padding:4px 9px;border-radius:6px;text-align:left}
+  .prods{display:flex;flex-wrap:wrap;gap:6px}
+  .prod{font-size:.8rem;text-decoration:none;color:var(--ink);background:var(--mist);border:1px solid var(--line);
+    padding:4px 10px;border-radius:999px;transition:.15s;white-space:nowrap}
+  .prod:hover{background:#fff;border-color:var(--cool);box-shadow:0 2px 8px rgba(15,27,45,.1)}
+  .prod::after{content:" ↗";opacity:.4;font-size:.7em}
+  .tip{margin-top:20px;background:#fff6ec;border:1px solid #f6dfc0;border-radius:14px;padding:16px 18px;
+    font-size:.9rem;color:#8a5a1e;display:flex;gap:12px}
+  .tip .ico{font-size:1.4rem}
+  .disclaimer{margin-top:14px;font-size:.8rem;color:var(--ink-soft);background:var(--mist);border-radius:12px;padding:12px 14px}
+
+  /* SUBHEADINGS + KIT + DAYS */
+  .subh{font-size:1.15rem;font-weight:800;margin:34px 0 4px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .subh span{font-size:.8rem;font-weight:600;color:var(--ink-soft)}
+  .subnote{color:var(--ink-soft);font-size:.9rem;margin-bottom:16px;max-width:72ch}
+  .kit{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:820px){.kit{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.kit{grid-template-columns:1fr}}
+  .kitcard{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:16px 18px}
+  .kitcard h4{font-size:.95rem;font-weight:800;margin-bottom:10px}
+  .kitcard ul{list-style:none}
+  .kitcard li{padding:5px 0 5px 22px;position:relative;font-size:.88rem;border-bottom:1px dashed var(--line)}
+  .kitcard li:last-child{border-bottom:none}
+  .kitcard li::before{content:"✓";position:absolute;left:2px;top:5px;color:#177a4c;font-weight:800}
+  .kitcard li.ck{padding:0}
+  .kitcard li.ck::before{content:none}
+  .ck label{display:flex;gap:9px;align-items:flex-start;padding:6px 0;cursor:pointer}
+  .ck input{margin-top:3px;accent-color:#177a4c;flex:0 0 auto;cursor:pointer}
+  .ck.done span{text-decoration:line-through;opacity:.55}
+  .kitcard .prog{font-size:.68rem;font-weight:800;color:var(--ink-soft);background:var(--mist);
+    padding:2px 8px;border-radius:999px;margin-left:6px;vertical-align:2px}
+  .kitcard .prog.full{color:#177a4c;background:#e3f6ec}
+  .days{display:flex;flex-direction:column;gap:12px}
+  .daycard{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+    padding:16px 18px;display:grid;grid-template-columns:104px 1fr;gap:16px;align-items:start}
+  .daycard.summit{border-color:#c9cdf5;background:linear-gradient(180deg,#fbfbff,#fff)}
+  .dayb{text-align:center}
+  .dayb .dn{font-weight:800;font-size:.98rem}
+  .dayb .da{font-size:.74rem;color:var(--ink-soft);margin-top:3px}
+  .dayb .dz{display:inline-block;margin-top:7px;font-size:.62rem;font-weight:800;text-transform:uppercase;
+    letter-spacing:.03em;background:var(--mist);color:var(--ink-soft);padding:3px 7px;border-radius:6px}
+  .daycard.summit .dz{background:#eceffe;color:var(--cold)}
+  .dayc .leg{font-weight:800;font-size:.95rem}
+  .dayc .cond{font-size:.78rem;font-weight:700;color:var(--sun);margin:2px 0 8px}
+  .daycard.summit .cond{color:var(--cold)}
+  .dayc .wear{font-size:.9rem} .dayc .wear b,.dayc .campn b{font-weight:800}
+  .dayc .campn{font-size:.84rem;color:var(--ink-soft);margin-top:7px;padding-top:7px;border-top:1px dashed var(--line)}
+  .dayc ul.tl{list-style:none;margin-top:8px}
+  .dayc ul.tl li{padding:4px 0 4px 18px;position:relative;font-size:.88rem}
+  .dayc ul.tl li::before{content:"›";position:absolute;left:2px;top:4px;color:var(--ink-soft);font-weight:800}
+  .dayc ul.tl li b{font-weight:800}
+  @media(max-width:600px){.daycard{grid-template-columns:1fr}}
+
+  /* TIPS */
+  .tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+  .tipcard{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+    padding:20px;border-top:4px solid var(--accent,var(--cool))}
+  .tipcard h3{font-size:1.05rem;font-weight:800;display:flex;align-items:center;gap:9px;margin-bottom:12px}
+  .tipcard h3 .em{font-size:1.3rem}
+  .tipcard ul{list-style:none}
+  .tipcard li{padding:7px 0 7px 22px;position:relative;font-size:.9rem;border-bottom:1px dashed var(--line)}
+  .tipcard li:last-child{border-bottom:none}
+  .tipcard li::before{content:"›";position:absolute;left:4px;top:5px;color:var(--accent,var(--cool));font-weight:800}
+  .tipcard li b{font-weight:800}
+
+  footer{text-align:center;padding:36px 20px 50px;color:var(--ink-soft);font-size:.85rem}
+  @media(max-width:720px){
+    .cards.two,.cards.multi{grid-template-columns:1fr}
+    .zone{grid-template-columns:1fr;gap:10px}
+  }
+</style>
+</head>
+<body class="prep">
+
+<header class="hero">
+  <svg class="peak" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+    <polygon points="0,260 380,90 470,140 640,20 780,120 900,70 1200,260" fill="#12406b"/>
+    <polygon points="600,44 660,86 640,96 690,140 560,140 610,96 588,86" fill="#f7fbff" opacity=".95"/>
+    <polygon points="760,128 800,156 700,156" fill="#f7fbff" opacity=".85"/>
+    <polygon points="0,260 380,90 470,140 300,260" fill="#0d3357" opacity=".6"/>
+  </svg>
+  <svg class="savannah" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+    <circle cx="268" cy="66" r="48" fill="#ffdca6" opacity=".5"/>
+    <path d="M0,214 Q300,196 620,210 T1200,206 L1200,260 L0,260 Z" fill="#7a4f1f"/>
+    <path d="M0,232 Q360,216 760,228 T1200,230 L1200,260 L0,260 Z" fill="#4a3013"/>
+    <g fill="#2c1d0d">
+      <path d="M255,232 L259,182 L263,232 Z"/>
+      <path d="M210,170 C232,158 286,156 312,166 C300,174 236,174 210,170 Z"/>
+    </g>
+    <g fill="#241708">
+      <path d="M902,240 L908,150 L916,240 Z"/>
+      <path d="M908,156 L845,126 M908,156 L978,120 M908,158 L908,124" stroke="#241708" stroke-width="6" fill="none"/>
+      <path d="M806,124 C828,104 906,98 972,106 C1006,110 1016,120 998,128 C968,138 872,132 838,132 C812,132 792,132 806,124 Z"/>
+    </g>
+    <g stroke="#3a2610" stroke-width="3" fill="none" opacity=".8">
+      <path d="M120,244 L120,230 M126,244 L129,231 M114,244 L111,231"/>
+      <path d="M560,248 L560,236 M566,248 L569,237 M554,248 L551,237"/>
+      <path d="M1040,246 L1040,234 M1046,246 L1049,235 M1034,246 L1031,235"/>
+    </g>
+  </svg>
+  <svg class="beach" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+    <circle cx="255" cy="64" r="46" fill="#ffe9b0" opacity=".55"/>
+    <path d="M0,214 Q150,204 300,213 Q450,222 600,213 Q750,204 900,213 Q1050,222 1200,213 L1200,260 L0,260 Z" fill="#0b5a5f"/>
+    <path d="M0,232 Q160,224 320,231 Q480,238 640,231 Q800,224 960,231 Q1080,236 1200,231 L1200,260 L0,260 Z" fill="#073f45"/>
+    <g fill="#0a2e2c">
+      <path d="M986,240 C984,200 986,172 992,150 C998,172 996,205 994,240 Z"/>
+      <path d="M992,150 C955,120 915,120 892,132 C925,126 960,132 992,150 Z"/>
+      <path d="M992,150 C955,150 918,160 900,178 C935,160 965,152 992,150 Z"/>
+      <path d="M992,150 C1030,122 1068,124 1090,138 C1055,128 1020,132 992,150 Z"/>
+      <path d="M992,150 C1030,152 1066,164 1084,182 C1050,162 1020,152 992,150 Z"/>
+      <path d="M992,150 C990,120 992,104 998,92 C994,110 994,132 992,150 Z"/>
+    </g>
+  </svg>
+  <svg class="journey" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+    <path d="M0,226 Q300,214 600,222 T1200,220 L1200,260 L0,260 Z" fill="#0d332e"/>
+    <g fill="#0b2b27">
+      <polygon points="80,224 220,100 360,224"/>
+      <polygon points="192,126 220,100 248,126 234,126 220,114 206,126" fill="#e9f5f2" opacity=".85"/>
+      <path d="M596,224 L600,164 L604,224 Z"/>
+      <path d="M556,158 C580,146 632,146 654,156 C640,164 578,164 556,158 Z"/>
+      <path d="M986,230 C984,196 986,172 992,152 C998,174 996,202 994,230 Z"/>
+      <path d="M992,152 C958,124 920,122 898,134 C930,128 962,134 992,152 Z"/>
+      <path d="M992,152 C1028,126 1064,128 1086,142 C1052,132 1020,136 992,152 Z"/>
+      <path d="M992,152 C958,152 924,162 906,178 C938,162 966,154 992,152 Z"/>
+    </g>
+  </svg>
+  <h1>Tanzania</h1>
+  <div class="sub">Plan it, climb it, safari it, unwind in Zanzibar — one guide for the whole Tanzania trip</div>
+  <div class="badges">
+    <span class="badge">📅 Dec 14 – Jan 2</span>
+    <span class="badge">🏔 Kilimanjaro · 5,895 m</span>
+    <span class="badge">🦁 Safari · Dec 21–28</span>
+    <span class="badge">🏝 Zanzibar · Dec 28–Jan 2</span>
+    <span class="badge">🌤 Short dry / green season</span>
+  </div>
+</header>
+
+<nav><div class="wrap">
+  <div class="tripbar">
+    <button class="trip active" data-trip="prep">🧳 Prepare</button>
+    <button class="trip" data-trip="kili">🏔 Kilimanjaro <small>Dec 14–21</small></button>
+    <button class="trip" data-trip="safari">🦁 Safari <small>Dec 21–28</small></button>
+    <button class="trip" data-trip="zanzibar">🏝 Zanzibar <small>Dec 28–Jan 2</small></button>
+  </div>
+  <div class="seclinks" id="seclinks"></div>
+</div></nav>
+
+<main class="wrap">
+
+<!-- ============ PREPARE ============ -->
+<div class="trip-view" id="view-prep">
+
+  <section id="p-timeline">
+    <h2><span class="dot"></span>Countdown — sort things in this order</h2>
+    <p class="lead">The trip works only if the slow things start early: vaccines, prescriptions, visas and breaking in boots all have lead times. Here's roughly when to do what before Dec 14. Tick things off as you go — progress is saved in this browser.</p>
+    <div class="pick" id="p-countdown" hidden style="margin:-8px 0 20px;font-size:.9rem"></div>
+    <div class="days" id="p-timeline-list"></div>
+  </section>
+
+  <section id="p-lists">
+    <h2><span class="dot"></span>Health, documents &amp; gear</h2>
+    <p class="lead">The must-sort lists. Vaccine, visa and insurance rules depend on your nationality and change often — treat these as prompts and confirm the specifics with a travel clinic and official sources.</p>
+    <div class="kit" id="p-checklists"></div>
+    <div class="disclaimer">⚠️ Entry, visa and vaccination requirements vary by nationality and change frequently. Verify on official Tanzania / Zanzibar government sources and with a travel-health professional before you book or fly.</div>
+  </section>
+
+</div>
+
+<!-- ============ KILIMANJARO ============ -->
+<div class="trip-view" id="view-kili">
+
+  <section id="k-routes">
+    <h2><span class="dot"></span>The two routes</h2>
+    <p class="lead">Both approach the summit via Barafu Camp and share a high success rate thanks to good "climb high, sleep low" acclimatization. Lemosho is longer, quieter and scenic; Machame is the classic, busier and a day shorter.</p>
+    <div class="cards two" id="k-routes-cards"></div>
+  </section>
+
+  <section id="k-temps">
+    <h2><span class="dot"></span>Climate zones &amp; temperatures</h2>
+    <p class="lead">You cross five ecological zones — tropical heat to arctic cold in a single climb. December is dry-season-ish: good weather, afternoon cloud, occasional rain low down, possible snow up high. Each zone shows the daytime and nighttime ranges.</p>
+    <div class="legend">
+      <span><b style="background:var(--sun)"></b>Day range (low → high)</span>
+      <span><b style="background:var(--cold)"></b>Night range (low → high)</span>
+      <span>Scale: −25°C ▸ +30°C</span>
+    </div>
+    <div class="zones" id="k-zones"></div>
+    <div class="summit-alert">
+      <span class="ico">❄️</span>
+      <div><b>Summit night is the extreme:</b> the midnight push to Uhuru Peak runs <b>−15°C to −25°C</b> before wind chill. Everything else on the mountain is manageable — you pack for this one night.</div>
+    </div>
+  </section>
+
+  <section id="k-clothing">
+    <h2><span class="dot"></span>Clothing &amp; gear — with alternatives</h2>
+    <p class="lead">Grouped by body part, each built base → insulation → shell. Below: the <b>total kit</b> (brand-free counts), then <b>what to wear each day</b>, then <b>brand options</b> per item.</p>
+
+    <h3 class="subh">📋 Full kit at a glance <span>— totals, no brands</span></h3>
+    <p class="subnote">What to actually pack, by count — tick items off as you buy/pack them (progress is saved in this browser). The brand tabs further down give options for each line.</p>
+    <div class="kit" id="k-kit"></div>
+
+    <h3 class="subh">📆 What to wear, day by day <span>— pick your route</span></h3>
+    <p class="subnote">It gets colder the higher you sleep, and summit night is the extreme on both routes. Machame reaches the upper mountain a day quicker; Lemosho spends an extra day acclimatizing before Barranco. Both share the same route from Barranco onward.</p>
+    <div class="tabs" id="k-day-tabs"></div>
+    <div id="k-day-panels"></div>
+
+    <h3 class="subh">🛍 Brand options <span>— pick per item</span></h3>
+    <div class="brandkey">
+      <span><i style="background:var(--columbia)"></i>Columbia</span>
+      <span><i style="background:var(--decathlon)"></i>Decathlon</span>
+      <span><i style="background:var(--me)"></i>Mountain Equipment</span>
+      <span><i style="background:var(--other)"></i>Other brands</span>
+    </div>
+    <div class="tabs" id="k-tabs"></div>
+    <div id="k-panels"></div>
+
+    <div class="disclaimer">✅ <b>Names checked against live catalogues, Sept 2026.</b> Fabricated and discontinued entries have been removed; brand rows are omitted where a brand doesn't make that category (Mountain Equipment makes no socks, eyewear, footwear, headlamps or poles).<br><br>
+    ⚠️ <b>Two things to know.</b> <b>Decathlon is migrating the MT range from Forclaz to Simond</b>, so the same MT500/MT900 item appears under either brand depending on region — search the model code, not the brand. And <b>Decathlon's coldest own-brand sleeping bag is only −5 °C</b>: for the −10 to −18 °C you want on summit night, use Mountain Equipment / Rab, or rent in Moshi.<br><br>
+    Decathlon UK/EU sites block automated checks, so those names were verified against other Decathlon regions — model codes are reliable, local stock isn't. Chips open a web search to confirm price and availability.</div>
+  </section>
+
+  <section id="k-tips">
+    <h2><span class="dot"></span>Tips &amp; tricks</h2>
+    <p class="lead">Summit success is far more about altitude strategy and staying warm/dry than about fitness. These are where most climbers win or lose the mountain.</p>
+    <div class="tips" id="k-tips-grid"></div>
+  </section>
+
+</div>
+
+<!-- ============ SAFARI ============ -->
+<div class="trip-view" id="view-safari" hidden>
+
+  <section id="s-parks">
+    <h2><span class="dot"></span>The parks — Northern Circuit</h2>
+    <p class="lead">A classic post-Kilimanjaro loop out of Arusha. December is the short green season: lush scenery, newborn animals, superb birding and fewer crowds, with brief afternoon storms. The southern Serengeti (Ndutu) starts filling with the migration for calving from late December.</p>
+    <div class="cards multi" id="s-parks-cards"></div>
+  </section>
+
+  <section id="s-climate">
+    <h2><span class="dot"></span>Climate &amp; temperatures</h2>
+    <p class="lead">Safari is warm and low-altitude compared to the mountain — but early game drives are cold, and the Ngorongoro Crater rim (~2,300 m) is genuinely chilly at dawn. December brings warm, humid days and short afternoon rains. Ranges shown day vs. night.</p>
+    <div class="legend">
+      <span><b style="background:var(--sun)"></b>Day range (low → high)</span>
+      <span><b style="background:var(--cold)"></b>Night range (low → high)</span>
+      <span>Scale: 0°C ▸ +35°C</span>
+    </div>
+    <div class="zones" id="s-zones"></div>
+    <div class="summit-alert warm">
+      <span class="ico">🌅</span>
+      <div><b>Dawn game drives are the cold surprise:</b> you leave in the dark in an open vehicle at wind chill. Pack a fleece + light rain shell even though midday hits <b>30°C</b> — the Ngorongoro rim can be near freezing at sunrise.</div>
+    </div>
+  </section>
+
+  <section id="s-clothing">
+    <h2><span class="dot"></span>Clothing, shoes &amp; gear</h2>
+    <p class="lead">Safari dressing is about <b>neutral colours</b>, sun and insect protection, and layers for cold-dawn / hot-midday swings. Below: the <b>total kit</b> (brand-free counts), then <b>brand options</b> per item. The <b>Footwear</b> tab covers your safari shoes.</p>
+
+    <h3 class="subh">📋 Full kit at a glance <span>— totals, no brands</span></h3>
+    <p class="subnote">Counts assume ~7 days with lodge laundry available, so you pack less than you'd think. Tick items off as you buy/pack them — progress is saved in this browser.</p>
+    <div class="kit" id="s-kit"></div>
+
+    <h3 class="subh">🛍 Brand options <span>— pick per item</span></h3>
+    <div class="brandkey">
+      <span><i style="background:var(--columbia)"></i>Columbia</span>
+      <span><i style="background:var(--decathlon)"></i>Decathlon</span>
+      <span><i style="background:var(--me)"></i>Mountain Equipment</span>
+      <span><i style="background:var(--other)"></i>Other brands</span>
+    </div>
+    <div class="tabs" id="s-tabs"></div>
+    <div id="s-panels"></div>
+    <div class="disclaimer">✅ <b>Names checked against live catalogues, Sept 2026</b> — the Columbia PFG shirts in particular are current and well stocked. Brand rows are omitted where a brand doesn't make the category.<br><br>
+    ⚠️ Decathlon's MT range is mid-migration from <b>Forclaz to Simond</b> — search the model code rather than the brand. For colours, stick to khaki / olive / tan / brown and avoid blue &amp; black (tsetse flies).</div>
+  </section>
+
+  <section id="s-tips">
+    <h2><span class="dot"></span>Tips &amp; tricks</h2>
+    <p class="lead">Great safaris come down to colours, bug/sun defense, optics, and patience. Below is what actually changes your experience day to day.</p>
+    <div class="tips" id="s-tips-grid"></div>
+  </section>
+
+</div>
+
+<!-- ============ ZANZIBAR ============ -->
+<div class="trip-view" id="view-zanzibar" hidden>
+
+  <section id="z-overview">
+    <h2><span class="dot"></span>Zanzibar — the beach finish</h2>
+    <p class="lead"><b>Dec 28 – Jan 2.</b> After the mountain and the plains, Zanzibar is the wind-down: warm Indian-Ocean beaches, Stone Town's spice-island history and reef snorkelling. Expect hot, humid days (around 29–32 °C), warm sea and the odd short shower. Clothing is easy — light, breathable, quick-dry — so this tab skips the obvious and covers what's easy to get wrong.</p>
+    <div class="summit-alert sea"><span class="ico">🎉</span><div><b>You're there over New Year — book early.</b> Dec 28–Jan 2 is Zanzibar's peak week: hotels, transfers and Mnemba trips sell out and prices spike, and many resorts charge a <b>compulsory NYE gala dinner</b>. Also: <b>east-coast tides</b> pull the sea far out at low tide (check a tide table, or stay north at Nungwi / Kendwa), and Zanzibar requires visitors to hold <b>mandatory travel insurance</b>.</div></div>
+  </section>
+
+  <section id="z-tips">
+    <h2><span class="dot"></span>Good to know</h2>
+    <p class="lead">The things that actually shape a Zanzibar stop — culture, sea kit, tides, activities and logistics.</p>
+    <div class="tips" id="z-tips-grid"></div>
+  </section>
+
+</div>
+
+</main>
+
+<footer id="foot">
+  Dec 14 – Jan 2 · Kilimanjaro (Lemosho / Machame) 14–21 · Northern-circuit safari 21–28 · Zanzibar 28–Jan 2.<br>
+  Temperatures are typical seasonal ranges, not forecasts. Product chips open a web search.
+</footer>
+
+<script>
+/* ================= DATA ================= */
+
+/* ---- Route / Park cards ---- */
+const kiliRoutes=[
+ {name:"Machame",tag:'"The Whiskey Route" · classic',kv:[["Duration","6–7 days"],["Distance","~62 km"],
+   ["Start side","South"],["Scenery","Very good, varied"],["Traffic","Busy"],["Acclimatization","Good"]],
+   note:"Steeper, more demanding profile. The Barranco Wall scramble is the highlight. Cheaper and easier to book."},
+ {name:"Lemosho",tag:"Scenic · higher success",kv:[["Duration","7–8 days"],["Distance","~70 km"],
+   ["Start side","West"],["Scenery","Excellent, remote"],["Traffic","Quiet early on"],["Acclimatization","Excellent"]],
+   note:"Extra day = better acclimatization = higher summit success. Merges with Machame at Barranco. Best pick for your 8-day window.",
+   pick:"✓ Recommended for Dec 14–21"},
+];
+const safariParks=[
+ {name:"Tarangire",tag:"Elephants & baobabs",kv:[["Altitude","~1,100 m"],["Best for","Big elephant herds"],["Drive from Arusha","~2 h"]],
+   note:"Superb in the green season — baobab-studded landscape and huge elephant groups."},
+ {name:"Serengeti",tag:"Endless plains · big cats",kv:[["Altitude","~1,500 m"],["Best for","Lion, cheetah, plains game"],["Drive/fly","Fly recommended"]],
+   note:"In late December the migration gathers in the southern plains (Ndutu) for calving — dramatic predator action.",
+   pick:"★ Migration calving zone"},
+ {name:"Ngorongoro",tag:"Big Five in a caldera",kv:[["Rim altitude","~2,300 m · cold"],["Best for","Densest wildlife, rhino"],["Crater floor","~600 m descent"]],
+   note:"World's largest intact caldera. Bring a warm layer — the rim is near freezing at the pre-dawn start."},
+ {name:"Lake Manyara",tag:"Tree-climbing lions",kv:[["Altitude","~960 m"],["Best for","Birding, flamingos"],["Drive from Arusha","~2 h"]],
+   note:"Compact and lush; groundwater forest, hippos and huge flamingo flocks on the soda lake."},
+];
+
+/* ---- Temperature zones (day/night ranges) ---- */
+const kiliZones=[
+  {name:"Rainforest",alt:"1,800–2,800 m · start",day:[21,27],night:[12,16]},
+  {name:"Moorland",alt:"2,800–4,000 m",day:[12,18],night:[0,7]},
+  {name:"Alpine desert",alt:"4,000–5,000 m",day:[5,15],night:[-6,0]},
+  {name:"Summit / Arctic",alt:"5,000–5,895 m",day:[-7,4],night:[-25,-15]},
+];
+const safariZones=[
+  {name:"Tarangire",alt:"~1,100 m",day:[29,32],night:[17,19]},
+  {name:"Lake Manyara",alt:"~960 m",day:[28,31],night:[16,18]},
+  {name:"Serengeti",alt:"~1,500 m",day:[26,29],night:[14,16]},
+  {name:"Arusha (base)",alt:"~1,400 m",day:[25,28],night:[14,16]},
+  {name:"Ngorongoro rim",alt:"~2,300 m · cold dawns",day:[16,20],night:[5,10]},
+];
+
+/* ---- Clothing (c=Columbia, d=Decathlon, m=Mountain Equipment, o=Other) ---- */
+const kiliParts=[
+ {key:"tops",label:"👕 Tops",groups:[
+   {t:"Base (wicking)",need:"Merino / synthetic long-sleeve",
+    c:["Omni-Heat Midweight Baselayer Crew","Omni-Heat Midweight Baselayer Half Zip","Midweight Baselayer Crew Shirt"],
+    d:["MT500 Merino Wool LS T-shirt","MT900 Merino LS Tee","Quechua MH500 Long-Sleeved Hiking T-Shirt"],
+    m:["Cerrig Men's LS Zip T","Nava LS Men's Zip T","Redline LS Men's Tee"]},
+   {t:"Base (day)",need:"Short-sleeve hiking tee",
+    c:["Zero Rules Light Short Sleeve Crew","Tech Trail Utility Short Sleeve Crew"],
+    d:["Quechua MH500 Short-Sleeved Hiking T-Shirt","MT500 Merino Wool SS T-shirt"],
+    m:["Headpoint Men's Tee","Ignis Men's Tee","Groundup Men's Tee"]},
+   {t:"Mid (insulation)",need:"Light fleece",
+    c:["Steens Mountain 2.0 Full Zip Fleece Jacket","Fast Trek III Half Zip Fleece Pullover","Klamath Range II Half Zip Fleece"],
+    d:["Quechua MH500 Half-Zip Fleece","Quechua MH120 Fleece Jacket"],
+    m:["Micro Men's Zip T","Highpile Men's Jacket"]},
+   {t:"Mid (heavy)",need:"Heavy fleece / softshell",
+    c:["Ascender Softshell Jacket","Ascender II Hooded Softshell Jacket","Pacific Arch 200 Half Zip Fleece"],
+    d:["MT500 Softshell WINDWARM","MT900 Windwarm Softshell","Quechua SH500 Warm Fleece Jacket"],
+    m:["Switch Pro Hooded Men's Jacket","Switch Alpine Men's Jacket"]},
+   {t:"Insulation",need:"Down / synthetic puffy jacket",
+    c:["Powder Lite II Hooded Jacket","Voodoo Falls 590 TurboDown II Jacket","Delta Ridge II Down Jacket"],
+    d:["MT100 −5°C Hooded Down Jacket","Simond Mountaineering Down Jacket −12°C"],
+    m:["Kryos Men's Jacket (synthetic)","Superflux Hooded Men's Jacket"]},
+   {t:"Shell",need:"Waterproof-breathable hardshell",
+    c:["Watertight II Rain Jacket","Trailborne 2.5L Rain Shell","Pouration II Rain Jacket"],
+    d:["MT500 Waterproof Jacket 20,000 mm","Quechua MH500 Waterproof Hiking Jacket"],
+    m:["Makalu Men's Jacket (Gore-Tex)","Raintower Men's Jacket","Lhotse Men's Jacket"]},
+   {t:"Summit night",summit:true,need:"Expedition-weight down parka",
+    c:["Marquam Peak Fusion II Hooded Parka","Voodoo Falls 590 TurboDown II Jacket"],
+    d:["MT900 −20°C Hooded Down Jacket","Simond Makalu −27°C Down Jacket"],
+    m:["K7 Men's Jacket (expedition)","Lightline Men's Jacket"]},
+ ]},
+ {key:"bottoms",label:"👖 Bottoms",groups:[
+   {t:"Base",need:"Thermal leggings",
+    c:["Omni-Heat Midweight Baselayer Tights","Midweight Baselayer Tights","Omni-Heat Infinity Baselayer Tights"],
+    d:["MT500 Merino Wool Base Layer Tights"],
+    m:["Jorasses Lite Men's Tight"]},
+   {t:"Trekking",need:"Hiking trousers (zip-off handy)",
+    c:["Silver Ridge Convertible Pants","Silver Ridge Utility Convertible Pants","Silver Ridge Utility Pants"],
+    d:["Quechua MH500 Modular Zip-Off Pants","MT100 Zip-Off Trekking Pants","MT500 Zip-Off Trekking Pants"],
+    m:["Comici Men's Pant","Ibex Mountain Men's Pant"]},
+   {t:"Mid",need:"Warm trekking pants (cold camps)",
+    d:["Quechua SH500 Water-repellent Winter Pants −10°C","Quechua MH100 Fleece Hiking Tights"],
+    m:["Eclipse Men's Pant (fleece leg layer)"]},
+   {t:"Shell",summit:true,need:"Waterproof shell pants (side zips)",
+    c:["Hikebound Rain Pants","Rebel Roamer II Pants"],
+    d:["Quechua MH500 Waterproof Overtrousers"],
+    m:["Makalu Men's Pant","Zeno FZ Men's Pant","Saltoro Men's Pant"]},
+ ]},
+ {key:"head",label:"🧢 Head",groups:[
+   {t:"Sun",need:"Wide-brim sun hat / cap",
+    c:["Bora Bora II Booney","Coolhead Zero II Cachalot Hat","Coolhead III Ball Cap"],
+    d:["MT500 Anti-UV Trekking Hat","MT100 Anti-UV Bucket Hat","MT900 Anti-UV Cap (neck flap)"],
+    m:["Aerofoil Boonie","Aerofoil Cap"],
+    o:["Outdoor Research Sun Runner","Tilley LTM6 Airflo"]},
+   {t:"Warmth",need:"Fleece / wool beanie",
+    c:["Columbia Watch Cap II","Titanium Performance Beanie"],
+    d:["MT500 Merino Wool Trekking Hat"],
+    m:["Branded Knitted Beanie","Powerstretch Beanie"],
+    o:["Smartwool Merino Beanie","Buff Knitted Hat"]},
+   {t:"Neck / face",summit:true,need:"Buff(s) or balaclava",
+    d:["MT500 Merino Wool Neck Warmer","Quechua HIKE 100 Neckband","Wedze Adult Ski Fleece Balaclava"],
+    m:["Powerstretch Balaclava","Powerstretch Neck Gaiter"],
+    o:["BUFF Merino Neckwear","Turtle Fur Balaclava"]},
+   {t:"Eyes",summit:true,need:"Cat 3–4 sunglasses + goggles",
+    d:["Decathlon MH570 Category 4 Polarised","MH570 Photochromic Cat 2–4","Wedze G500 I Goggles"],
+    o:["Julbo Sherpa / Explore V (Cat 4 glacier)","Cébé Trek glacier","Smith / Oakley ski goggles"]},
+   {t:"Light",summit:true,need:"Headlamp + spare batteries",
+    d:["HL500 USB V3 (300 lm)","HL900 USB V3 (600 lm)"],
+    o:["Petzl Actik Core","Petzl Tikka","Black Diamond Spot 400"]},
+ ]},
+ {key:"feet",label:"🥾 Feet",groups:[
+   {t:"Boots",need:"Waterproof, broken-in hiking boots",
+    c:["Newton Ridge Plus II Waterproof Boot","Peakfreak Titanium OutDry Mid","Redmond II Mid WP Shoe"],
+    d:["Quechua MH500 Mid Waterproof Boots","Simond MT100 TEX Leather Boots","MT500 Leather VIBRAM"],
+    o:["Salomon Quest 4 GTX","Lowa Renegade GTX Mid","Merrell Moab 3 Mid GTX"]},
+   {t:"Camp",need:"Lightweight camp shoes",
+    c:["Bahama X Slip-On Shoe"],
+    d:["Quechua NH500 Fresh Hiking Sandals","MT500 Packable Hiking Sandals"],
+    m:["Superflux Hut Slipper (down bootee)"],
+    o:["Crocs Classic","Teva Sandals"]},
+   {t:"Socks",summit:true,need:"Wool hiking + thermal socks",
+    d:["Quechua Hike 900 Wool Socks","Quechua SH500 Warm Mid Socks","Quechua MH500 Hike Socks"],
+    o:["Smartwool Mountaineer","Darn Tough Hiker","Bridgedale MerinoFusion"]},
+   {t:"Cold defense",summit:true,need:"Gaiters + toe warmers",
+    d:["Simond MT500 Low Gaiters","Simond MT500 High Gaiters"],
+    o:["Outdoor Research Crocodiles","Black Diamond GTX Gaiters","HotHands Toe Warmers"]},
+ ]},
+ {key:"hands",label:"🧤 Hands",groups:[
+   {t:"Liner",need:"Thin fleece / merino liners",
+    c:["Omni-Heat Touch II Glove Liners"],
+    d:["MT500 Merino Wool Glove Liners","MT500 Silk Liner Gloves"],
+    m:["Touch Screen Glove","Mugi Grip Glove"],
+    o:["Smartwool Merino Liner"]},
+   {t:"Trekking",need:"Light insulated gloves",
+    c:["Powder Lite II Gloves","Ascender III Softshell Gloves","Whirlibird III Gloves"],
+    d:["Simond MT500 Tactile Stretch Gloves","Wedze Warm Ski Gloves 500"],
+    m:["Guide Glove","Direkt Glove","Couloir Glove"]},
+   {t:"Summit night",summit:true,need:"Heavy waterproof mittens over liners",
+    c:["Arctic Slope Seeker Mittens"],
+    d:["Wedze Warm Ski Mittens SKI500","Simond MT900 Warm Windproof Mittens"],
+    m:["Redline Mitt","Guide Mitt","Mountain Mitt"],
+    o:["Black Diamond Mercury Mitt","Hestra Army Leather Heli"]},
+   {t:"Extra",summit:true,need:"Hand warmers + spare liners",
+    o:["HotHands Hand Warmers","Zippo Rechargeable Warmer","Little Hotties"]},
+ ]},
+ {key:"gear",label:"🎒 Gear",groups:[
+   {t:"Bags",need:"~90 L soft duffel (porters) + 30–35 L daypack",
+    c:["Landroamer 60L Duffel","Triple Canyon 24L Backpack","Atlas Explorer 28L Backpack"],
+    d:["Duffel 900 Extend WP 80–120 L","Quechua MH500 38 L","MT900 Symbium 70+10 L"],
+    m:["Wet & Dry 100L Kitbag","Fang 35+","Tupilak 37+"],
+    o:["The North Face Base Camp Duffel L","Osprey Talon 33","Patagonia Black Hole 100 L"]},
+   {t:"Sleeping",summit:true,need:"Bag rated −10 to −18 °C + insulated mat — see note below",
+    d:["Simond MT500 −5°C Synthetic (coldest own-brand)","MT900 0°C Down","Simond MT500 Air Insulated Mat"],
+    m:["Helium 800","Glacier 1000","Aerostat Down 7.0 Mat"],
+    o:["Rab Ascent 900","Therm-a-Rest NeoAir XTherm","Sea to Summit Ascent −9°"]},
+   {t:"Poles & hydration",need:"Trekking poles + 3 L capacity (bladder + bottles)",
+    c:["Aluminum Trekking Poles (1 pair)"],
+    d:["Forclaz MT500 Adjustable Pole","Simond SPRINT Carbon Poles","Forclaz MT500 Water Bladder 2 L"],
+    o:["Black Diamond Trail Ergo Cork","Leki Khumbu","Nalgene 1 L wide-mouth (×2)","CamelBak Crux 3 L"]},
+   {t:"Electronics & power",summit:true,need:"Power bank, spare batteries, adapters",
+    o:["Anker PowerCore 20,000 mAh","Nitecore NB10000 (ultralight)","Spare lithium AAA/AA (cold-resistant)","Type D/G plug adapter (230 V)","Garmin inReach Mini (optional)"]},
+   {t:"Organization & wet",need:"Dry bags, liners, camp hygiene",
+    d:["Decathlon / Itiwit IPX6 Dry Bags 5–30 L","Forclaz Waterproof Compression Bag 25 L"],
+    o:["Sea to Summit Dry Sacks","Nylofume pack liner","Wet wipes + hand sanitizer","Compeed blister kit","Quick-dry travel towel"]},
+ ]},
+];
+
+const safariParts=[
+ {key:"tops",label:"👕 Tops",groups:[
+   {t:"Day shirt",need:"Neutral short-sleeve (sun-friendly)",
+    c:["PFG Bahama II Short Sleeve Shirt","PFG Tamiami II Short Sleeve Shirt"],
+    d:["Forclaz Travel 100 SS Trekking Shirt","Travel 500 Merino Wool SS","Quechua MH500 SS"],
+    m:["Headpoint Men's Tee","Glace Hooded Men's Top (sun)"],
+    o:["Craghoppers NosiLife SS (anti-insect)","ExOfficio BugsAway SS"]},
+   {t:"Sun + bug cover",need:"Long-sleeve for dust, sun & dusk bugs",
+    c:["PFG Tamiami II Long Sleeve Shirt","PFG Bonehead Long Sleeve Shirt","Silver Ridge Utility II Long Sleeve"],
+    d:["Forclaz Travel 900 Anti-UV LS Shirt","Travel 500 Merino LS"],
+    m:["Glace Hooded Men's Top","Cerrig Men's LS Zip T"],
+    o:["Craghoppers NosiLife LS","ExOfficio BugsAway LS"]},
+   {t:"Warm layer",need:"Fleece / light puffy for cold dawn drives",
+    c:["Powder Lite II Jacket","Steens Mountain 2.0 Full Zip Fleece"],
+    d:["Quechua MH120 Fleece Jacket","Quechua MH500 Half-Zip Fleece"],
+    m:["Micro Men's Zip T","Kryos Men's Jacket"]},
+   {t:"Rain shell",need:"Packable jacket (green-season showers)",
+    c:["Watertight II Rain Jacket","Hikebound II Rain Jacket"],
+    d:["Quechua MH500 Waterproof Hiking Jacket","MT500 Waterproof Jacket"],
+    m:["Raintower Men's Jacket"]},
+ ]},
+ {key:"bottoms",label:"👖 Bottoms",groups:[
+   {t:"Convertible",need:"Zip-off trousers → shorts (neutral)",
+    c:["Silver Ridge Convertible Pants","Silver Ridge Utility Convertible Pants"],
+    d:["Forclaz Travel 100 Zip-Off Cargo Trousers","Quechua MH500 Modular Zip-Off Pants"],
+    m:["Comici Men's Pant"],
+    o:["Craghoppers NosiLife Convertible"]},
+   {t:"Shorts",need:"For hot midday game drives",
+    c:["Silver Ridge Cargo Shorts","PFG Backcast IV Water Shorts"],
+    d:["Quechua MH500 Shorts","Forclaz Travel 100 Cargo Shorts"],
+    o:["Craghoppers NosiLife Cargo Short"]},
+   {t:"Evening trousers",need:"Light long trousers (dusk bug cover)",
+    c:["Silver Ridge Utility Pants"],
+    d:["Forclaz Travel 500 Cargo Trousers","Quechua NH500 Trousers"],
+    m:["Ibex Mountain Men's Pant"],
+    o:["Craghoppers NosiLife Trousers"]},
+ ]},
+ {key:"footwear",label:"🥾 Footwear",groups:[
+   {t:"Walking shoes",need:"Closed light hikers (walking safaris, camp)",
+    c:["Redmond II Mid WP Shoe","Konos TRS OutDry Mid","Peakfreak Rush OutDry Shoe"],
+    d:["Quechua NH500 Hiking Shoe","Quechua MH500 Low Waterproof","Quechua MH900 Light"],
+    o:["Merrell Moab 3","Salomon X Ultra 4","Keen Targhee III"]},
+   {t:"Camp / vehicle",need:"Sandals or slip-ons for lodge & drives",
+    c:["Bahama X Slip-On Shoe","Trailstorm Hiker Two Strap Sandal"],
+    d:["Quechua NH500 Fresh Hiking Sandals","MT500 Packable Hiking Sandals"],
+    o:["Teva Terra Fi","Keen Newport H2","Crocs Classic"]},
+   {t:"Socks",need:"Breathable hiking socks",
+    d:["Quechua Hike 900 Wool Socks","Quechua MH500 Hike Socks"],
+    o:["Darn Tough Hiker","Smartwool Hike Light"]},
+ ]},
+ {key:"head",label:"🧢 Head",groups:[
+   {t:"Sun hat",need:"Wide-brim (strong equatorial sun)",
+    c:["Bora Bora II Booney","Coolhead Zero II Cachalot Hat","Coolhead III Ball Cap"],
+    d:["Forclaz Desert 500 UV-Protective Cap","Tropic 900 Mosquito Repellent Hat","MT500 Anti-UV Trekking Hat"],
+    m:["Aerofoil Boonie","Aerofoil Cap"],
+    o:["Outdoor Research Sun Runner","Tilley Airflo","Craghoppers NosiLife Hat"]},
+   {t:"Eyes",need:"Polarized sunglasses (Cat 3)",
+    c:["Barlow Basin Polarized (thin stock)"],
+    d:["Decathlon MH140A P3 (Cat 3 polarised)","Decathlon MH500 Cat 3"],
+    o:["Julbo","Oakley Holbrook","Ray-Ban Polarized"]},
+   {t:"Dust cover",need:"Buff / bandana for dusty roads",
+    d:["Quechua HIKE 100 Neckband","MT500 Merino Wool Neck Warmer"],
+    o:["BUFF CoolNet UV","Craghoppers NosiLife Neck Gaiter"]},
+ ]},
+ {key:"extras",label:"🎒 Extras",groups:[
+   {t:"Optics & camera",need:"The kit that makes the safari",
+    o:["Binoculars 8×42 (Nikon / Vortex)","Zoom lens 100–400 mm","Bean bag rest","Dust blower + cloth","Spare batteries & memory cards"]},
+   {t:"Bug & sun defense",need:"Non-negotiable in green season",
+    o:["DEET / Picaridin repellent","Permethrin clothing spray","High-SPF sunscreen","SPF lip balm"]},
+   {t:"Day kit",need:"Everyday carry",
+    o:["Refillable water bottle","Power bank","Type D/G plug adapter (230V)","Small daypack","Head torch"]},
+ ]},
+];
+
+/* ---- Tips ---- */
+const kiliTips=[
+ {em:"🐢",title:"Altitude — the #1 factor",color:"#5b6ee1",items:[
+   "<b>Pole pole</b> (\"slowly slowly\") — walk slower than feels natural; this beats fitness for summiting.",
+   "Choose the extra-day itinerary — <b>Lemosho 8-day</b> gives the best acclimatization.",
+   "Talk to your doctor about <b>Diamox (acetazolamide)</b> as a preventive.",
+   "Learn AMS signs (headache, nausea, dizziness). Tell your guide early — <b>descending cures it</b>."]},
+ {em:"💧",title:"Hydration & food",color:"#12a6a0",items:[
+   "Drink <b>3–4 L/day</b> — dehydration mimics and worsens altitude sickness.",
+   "Add <b>electrolyte tabs</b>; plain water alone isn't enough at altitude.",
+   "Eat even with no appetite — energy is fuel for warmth and the climb.",
+   "Bladder hoses freeze on summit night — carry <b>bottles as backup</b>, hose insulated."]},
+ {em:"❄️",title:"Summit night",color:"#3457d5",items:[
+   "Starts ~midnight. <b>Store bottles upside-down</b> so the caps (not the drinking end) freeze.",
+   "Keep <b>phone, camera & spare batteries inside your jacket</b> — cold kills battery fast.",
+   "Drop <b>hand/toe warmers</b> into mittens and boots before you set off.",
+   "Layer fully at camp before starting; stopping to add layers in the wind is miserable."]},
+ {em:"🧥",title:"Clothing strategy",color:"#d9633b",items:[
+   "<b>No cotton, anywhere</b> — it holds sweat and chills you.",
+   "Don't overheat while hiking; <b>vent and shed layers early</b>, sweat = cold later.",
+   "High-SPF <b>sunscreen + SPF lip balm</b> — UV is brutal at altitude, even when cloudy.",
+   "<b>Break in your boots</b> beforehand and trim toenails to avoid black nails on descent."]},
+ {em:"🎒",title:"Gear & logistics",color:"#4a90c2",items:[
+   "Porter duffel is usually capped ~<b>15 kg</b>; carry a <b>30–35 L daypack</b> yourself.",
+   "<b>Dry bags / pack liner</b> — rainforest and melting snow soak everything otherwise.",
+   "<b>Trekking poles</b> save your knees on the long scree descent.",
+   "Bring <b>wet wipes + hand sanitizer</b> (no showers) and a power bank."]},
+ {em:"🩺",title:"Health & money",color:"#7a5cc4",items:[
+   "Get <b>travel insurance covering high-altitude evacuation</b> — non-negotiable.",
+   "Check <b>Tanzania entry requirements</b>: yellow fever proof + malaria prophylaxis.",
+   "Pack a <b>blister kit</b> (Compeed), personal meds, and rehydration salts.",
+   "Bring <b>USD cash in small bills</b> for guide/porter tips — budget in advance."]},
+];
+const safariTips=[
+ {em:"🎨",title:"Dress code & colours",color:"#8a6d3b",items:[
+   "Stick to <b>neutral colours</b> — khaki, olive, tan, brown; they blend in and hide dust.",
+   "<b>Avoid blue and black</b> — they attract <b>tsetse flies</b> (painful bites).",
+   "Skip bright colours and white (shows dust), and <b>no camouflage</b> (restricted for civilians in Tanzania).",
+   "Layer for the swing: <b>cold dawn drives, hot midday</b> — especially the Ngorongoro rim."]},
+ {em:"🦟",title:"Health & bugs",color:"#12a6a0",items:[
+   "Take <b>malaria prophylaxis</b> — the December green season raises risk; consult a doctor.",
+   "Use <b>DEET / Picaridin repellent</b>; cover arms and legs at dawn and dusk.",
+   "Consider <b>permethrin-treated clothing</b> (Craghoppers NosiLife, or treat your own).",
+   "Carry <b>yellow-fever certificate</b>, personal meds and a basic first-aid kit."]},
+ {em:"🔭",title:"Game viewing",color:"#5b6ee1",items:[
+   "<b>Binoculars (8×42)</b> transform every sighting — bring your own, don't rely on shared ones.",
+   "Best light and activity are at <b>dawn and late afternoon</b>; midday animals rest.",
+   "<b>Stay quiet, move slowly</b>, and never stand up suddenly in the vehicle.",
+   "Be patient — the best sightings reward waiting, not chasing."]},
+ {em:"📷",title:"Camera & dust",color:"#d9633b",items:[
+   "Bring a <b>zoom lens (200–400 mm)</b> plus <b>spare batteries and memory cards</b>.",
+   "<b>Dust gets everywhere</b> — sealed bag, blower/cloth, and change lenses inside the vehicle.",
+   "A <b>bean bag</b> on the window frame steadies long lenses better than a tripod.",
+   "Shoot at <b>golden hour</b> and eye level for the strongest wildlife images."]},
+ {em:"🚙",title:"Logistics",color:"#4a90c2",items:[
+   "Bush flights between parks cap luggage ~<b>15 kg in a soft duffel</b> (no hard cases).",
+   "Lodge power can be <b>limited hours</b> — carry a power bank; plugs are <b>Type D/G, 230 V</b>.",
+   "Green season means <b>fewer crowds, lush scenery, newborn animals</b> and superb birding.",
+   "Some roads get muddy; <b>short afternoon storms</b> are common but pass quickly."]},
+ {em:"💵",title:"Money & etiquette",color:"#7a5cc4",items:[
+   "Carry <b>USD cash in small bills</b> for guide/driver tips and park extras.",
+   "Budget roughly <b>$20–30/day for your guide</b> (confirm norms with your operator).",
+   "<b>Respect wildlife distance</b>; stay in the vehicle unless the guide says otherwise.",
+   "Ask before photographing <b>local people</b> — it's courteous and usually expected."]},
+];
+
+/* ---- Kilimanjaro: full kit totals (brand-free) ---- */
+const kiliKit=[
+ {part:"👕 Tops",items:["2× merino/synthetic long-sleeve base","2–3× short-sleeve hiking tees","1× light fleece",
+   "1× heavy fleece or softshell","1× down/synthetic puffy jacket","1× waterproof hardshell jacket","1× expedition down parka (summit)"]},
+ {part:"👖 Bottoms",items:["2× thermal leggings (base)","2× hiking trousers (convertible)","1× fleece trekking pants",
+   "1× waterproof shell pants","4–5× hiking underwear"]},
+ {part:"🧢 Head",items:["1× wide-brim sun hat","1× warm beanie","2× buff / 1× balaclava",
+   "1× Cat 3–4 sunglasses (+ ski goggles)","1× headlamp + spare batteries"]},
+ {part:"🥾 Feet",items:["1× waterproof, broken-in boots","1× camp shoes / sandals","4–5× wool hiking socks",
+   "1–2× thick thermal socks (summit)","1× gaiters + toe warmers"]},
+ {part:"🧤 Hands",items:["1× thin liner gloves","1× light insulated gloves","1× heavy waterproof mittens","Hand warmers"]},
+ {part:"🎒 Gear",items:["1× ~90 L soft duffel + 30–35 L daypack","1× sleeping bag (−10 to −18 °C) + mat","1× trekking poles","3 L water capacity (bladder + bottles)","Power bank + spare lithium batteries","Dry bags / pack liner + wet wipes"]},
+];
+
+/* ---- Safari: full kit totals (brand-free) ---- */
+const safariKit=[
+ {part:"👕 Tops",items:["3× neutral short-sleeve shirts","2× long-sleeve shirts (sun + dusk bugs)",
+   "1× fleece or light puffy (cold dawn drives)","1× packable rain shell","1× smart-casual top for lodge dinners"]},
+ {part:"👖 Bottoms",items:["2× convertible zip-off trousers","1–2× shorts","1× light long trousers for dusk",
+   "5–7× underwear","1× swimwear (most lodges have pools)"]},
+ {part:"🥾 Footwear",items:["1× closed walking shoes / light hikers","1× sandals or slip-ons for lodge & vehicle",
+   "4–5× breathable hiking socks"]},
+ {part:"🧢 Head & eyes",items:["1× wide-brim sun hat","1× polarized sunglasses (Cat 3)",
+   "1× buff / bandana for dust","1× head torch (camps have limited lighting)"]},
+ {part:"🔭 Optics & camera",items:["1× binoculars 8×42 — the single best upgrade","1× zoom lens 100–400 mm",
+   "1× bean bag or soft rest for the window frame","Spare batteries + memory cards","Dust blower + lens cloth","1× sealed/dry bag for camera"]},
+ {part:"🎒 Bags & power",items:["1× soft duffel ~15 kg (bush flights ban hard cases)","1× small daypack for drives",
+   "1× power bank (lodge power can be limited)","Type D/G plug adapter (230 V)","Refillable water bottle"]},
+ {part:"🦟 Health & bugs",items:["Malaria tablets — full course","DEET / Picaridin repellent",
+   "Permethrin spray or treated clothing","High-SPF sunscreen + SPF lip balm","Basic first-aid + personal meds","Hand sanitizer + wet wipes"]},
+ {part:"📄 Documents & money",items:["Passport + Tanzania eVisa","Yellow-fever certificate","Travel insurance proof",
+   "USD cash in small bills for tips","Copies stored offline / in the cloud"]},
+];
+
+/* ---- Kilimanjaro: day-by-day (Lemosho 8-day) ---- */
+const lemoshoDays=[
+ {d:"Day 1",leg:"Londorossi Gate → Mti Mkubwa (Big Tree)",alt:"2,650 m",zone:"Rainforest",cond:"Hot, humid, likely rain",
+   wear:"Short-sleeve tee + convertible trousers. Keep the rain shell on top of your daypack — forest showers come fast.",
+   camp:"Cool, damp night — base layer + light fleece to sleep."},
+ {d:"Day 2",leg:"Mti Mkubwa → Shira 1 Camp",alt:"3,505 m",zone:"Moorland",cond:"Warm day, cool night",
+   wear:"Hiking tee; sun hat and sunglasses on as the forest thins. Light fleece within reach.",
+   camp:"First chilly night — beanie + insulated jacket after sunset."},
+ {d:"Day 3",leg:"Shira 1 → Shira 2 Camp",alt:"3,900 m",zone:"Moorland",cond:"Cool, breezy, intense sun",
+   wear:"Long-sleeve base or tee + softshell if it's windy. Full sun protection — UV is strong here.",
+   camp:"Can drop below freezing — puffy, beanie and gloves at camp."},
+ {d:"Day 4",leg:"Shira 2 → Lava Tower (4,600 m) → Barranco",alt:"sleep 3,960 m",zone:"Alpine desert",cond:"Cold, thin air at Lava Tower",
+   wear:"Layer up for Lava Tower: base + fleece + shell, plus gloves and beanie. Shed layers on the descent to Barranco.",
+   camp:"Classic 'climb high, sleep low' day — the acclimatization that makes your summit."},
+ {d:"Day 5",leg:"Barranco Wall → Karanga Camp",alt:"3,995 m",zone:"Alpine desert",cond:"Scramble, then variable",
+   wear:"Flexible layers — the Barranco Wall warms you up fast. Liner gloves help grip; shell for wind at the top.",
+   camp:"Cold night; hydrate hard — Karanga is the last reliable water."},
+ {d:"Day 6",leg:"Karanga → Barafu Base Camp",alt:"4,673 m",zone:"Alpine desert",cond:"Cold, windy, exposed",
+   wear:"Base + fleece + shell for most of the day. Reach camp early and rest.",
+   camp:"Lay out your full summit kit tonight, eat well and sleep early — you leave around midnight."},
+ {d:"Day 7",leg:"Barafu → Uhuru Peak (5,895 m) → Mweka",alt:"summit → 3,100 m",zone:"Arctic → forest",cond:"−15 to −25°C summit night",summit:true,
+   wear:"<b>Everything.</b> Top: base + mid fleece + puffy + hardshell + down parka. Bottom: base + fleece + shell pants. Liners + mittens, balaclava, goggles, hand/toe warmers. Peel layers off as you descend into the warmth.",
+   camp:"The big day — up in the dark, down to Mweka by afternoon. Back to tee + trousers as it warms."},
+ {d:"Day 8",leg:"Mweka Camp → Mweka Gate",alt:"1,640 m",zone:"Rainforest",cond:"Warm, humid, muddy",
+   wear:"Back to short-sleeve tee + trousers. Keep the rain shell handy — the forest descent is often wet and slippery.",
+   camp:"Done — celebrate at the gate."},
+];
+
+/* ---- Kilimanjaro: day-by-day (Machame 7-day) ---- */
+const machameDays=[
+ {d:"Day 1",leg:"Machame Gate → Machame Camp",alt:"3,010 m",zone:"Rainforest",cond:"Hot, humid, likely rain",
+   wear:"Short-sleeve tee + convertible trousers. Rain shell at the top of your daypack — the forest soaks you without warning.",
+   camp:"Big first-day climb through the forest. Cool, damp night — base layer + light fleece to sleep."},
+ {d:"Day 2",leg:"Machame Camp → Shira Cave Camp",alt:"3,845 m",zone:"Moorland",cond:"Warm day, cold night",
+   wear:"Hiking tee; sun hat and sunglasses on as the trees thin out. Light fleece within reach for the ridge wind.",
+   camp:"First properly cold night — puffy, beanie and gloves after sunset."},
+ {d:"Day 3",leg:"Shira → Lava Tower (4,630 m) → Barranco",alt:"sleep 3,960 m",zone:"Alpine desert",cond:"Cold, thin air at Lava Tower",
+   wear:"Layer up for Lava Tower: base + fleece + shell, plus gloves and beanie. Shed layers on the descent into Barranco.",
+   camp:"The key 'climb high, sleep low' day — this is the acclimatization that makes your summit."},
+ {d:"Day 4",leg:"Barranco Wall → Karanga Camp",alt:"3,995 m",zone:"Alpine desert",cond:"Scramble, then variable",
+   wear:"Flexible layers — the Barranco Wall warms you up fast. Liner gloves help grip; shell for wind at the top.",
+   camp:"Short day, cold night. Hydrate hard — Karanga is the last reliable water."},
+ {d:"Day 5",leg:"Karanga → Barafu Base Camp",alt:"4,673 m",zone:"Alpine desert",cond:"Cold, windy, exposed",
+   wear:"Base + fleece + shell most of the day. Reach camp early and rest.",
+   camp:"Lay out your full summit kit tonight, eat well and sleep early — you leave around midnight."},
+ {d:"Day 6",leg:"Barafu → Uhuru Peak (5,895 m) → Mweka",alt:"summit → 3,100 m",zone:"Arctic → forest",cond:"−15 to −25°C summit night",summit:true,
+   wear:"<b>Everything.</b> Top: base + mid fleece + puffy + hardshell + down parka. Bottom: base + fleece + shell pants. Liners + mittens, balaclava, goggles, hand/toe warmers. Peel layers off as you descend into the warmth.",
+   camp:"The big day — up in the dark, down to Mweka by afternoon. Back to tee + trousers as it warms."},
+ {d:"Day 7",leg:"Mweka Camp → Mweka Gate",alt:"1,640 m",zone:"Rainforest",cond:"Warm, humid, muddy",
+   wear:"Back to short-sleeve tee + trousers. Keep the rain shell handy — the forest descent is often wet and slippery.",
+   camp:"Done — celebrate at the gate."},
+];
+
+const kiliRouteDays=[
+ {label:"🏕 Machame · 7 days",days:machameDays},
+ {label:"🥾 Lemosho · 8 days",days:lemoshoDays},
+];
+
+/* ---- Prepare: countdown timeline ---- */
+const prepTimeline=[
+ {when:"8–12 wks",tag:"Book & jab",title:"Health, big gear & insurance",items:[
+   "Travel-clinic visit: vaccines, malaria tablets and a Diamox (altitude) prescription.",
+   "Buy or reserve big-ticket cold gear (down parka, mittens, sleeping bag) — or plan to rent in Moshi.",
+   "Start <b>breaking in your hiking boots</b> on real walks — the earliest task.",
+   "Buy travel insurance that covers trekking to ~6,000 m plus medical evacuation.",
+   "<b>Book Zanzibar now</b> — Dec 28–Jan 2 is peak New Year week and sells out early."]},
+ {when:"4–6 wks",tag:"Apply & train",title:"Visa & conditioning",items:[
+   "Apply for the Tanzania <b>eVisa</b>; check Zanzibar's separate mandatory insurance.",
+   "Finish any multi-dose vaccine courses.",
+   "Do training hikes with your <b>loaded daypack and boots</b>.",
+   "Fill the gaps in your layering system while there's time to return/exchange."]},
+ {when:"2 wks",tag:"Confirm",title:"Money, meds & documents",items:[
+   "Fill all prescriptions; assemble a personal first-aid + blister kit.",
+   "Get <b>USD cash</b> in clean bills dated 2013 or later.",
+   "Confirm operator, flights, transfers and lodge/park bookings.",
+   "Check passport: 6+ months validity and enough blank pages."]},
+ {when:"2–3 days",tag:"Pack",title:"Final prep",items:[
+   "Pack to the Kilimanjaro day-by-day and kit checklists.",
+   "Charge and organise electronics, power bank and spare batteries.",
+   "Download offline maps and digital copies of documents.",
+   "Keep the <b>yellow-fever certificate + insurance proof</b> in your hand luggage."]},
+];
+
+/* ---- Prepare: checklists ---- */
+const prepChecklists=[
+ {part:"🩺 Health & vaccines",items:[
+   "Yellow fever (cert may be checked; ≥10 days before)",
+   "Hep A, Typhoid, Tetanus — routine travel jabs",
+   "Malaria tablets (Malarone / doxycycline) — prescription",
+   "Diamox for altitude — discuss with a doctor",
+   "Personal meds, rehydration salts, blister kit"]},
+ {part:"🛂 Documents & money",items:[
+   "Passport valid 6+ months, blank pages",
+   "Tanzania eVisa (apply ahead)",
+   "Insurance: trekking to 6,000 m + evacuation",
+   "Zanzibar mandatory visitor insurance (if going)",
+   "USD cash, small clean bills (2013 or newer)"]},
+ {part:"🛒 Gear to buy & prep",items:[
+   "Break in boots early — top priority",
+   "Down parka + waterproof mittens (buy or rent)",
+   "Sleeping bag rated ~ −10 to −18 °C",
+   "Trekking poles, ~90 L duffel, 30–35 L daypack",
+   "Headlamp + spares; test everything on a hike"]},
+];
+
+/* ---- Zanzibar: good-to-know ---- */
+const zanzibarTips=[
+ {em:"🧕",title:"Dress & culture",color:"#0f9d94",items:[
+   "Zanzibar is <b>predominantly Muslim</b> — in Stone Town and villages cover <b>shoulders and knees</b> (men too).",
+   "Swimwear is for the <b>beach and resorts only</b>, not town.",
+   "Pack a <b>light scarf / sarong</b> — useful for shoulders, sun and mosques.",
+   "Beachwear is fine along the Nungwi / Kendwa resort strips."]},
+ {em:"🐠",title:"Beach & sea kit",color:"#12a6a0",items:[
+   "<b>Reef-safe sunscreen</b> — ordinary sunscreen damages the coral.",
+   "<b>Water / reef shoes</b> — sharp coral and sea urchins are common.",
+   "Bring or rent a <b>mask & snorkel</b>; a <b>rash guard</b> stops your back burning.",
+   "A <b>dry bag</b> protects phone and camera on boat trips."]},
+ {em:"🌊",title:"Tides & swimming",color:"#4a90c2",items:[
+   "The <b>east coast has large tides</b> — the sea recedes far at low tide, exposing reef.",
+   "Check a <b>tide table</b> and swim around high tide there.",
+   "<b>North coast (Nungwi / Kendwa)</b> is far less tide-affected — swimmable all day.",
+   "Seaweed farming is visible on parts of the east coast at low tide."]},
+ {em:"🧭",title:"Things to do",color:"#c8862b",items:[
+   "<b>Stone Town</b>: spice tour, the Forodhani night-food market, historic alleys.",
+   "<b>Mnemba atoll</b> snorkelling and a <b>dhow sunset cruise</b>.",
+   "<b>Jozani Forest</b> — endemic red colobus monkeys.",
+   "<b>Prison Island</b> giant tortoises; <b>Kizimkazi</b> dolphins."]},
+ {em:"🎆",title:"New Year peak week",color:"#c8862b",items:[
+   "<b>Dec 28–Jan 2 is the busiest week of the year</b> — book beds, transfers and boat trips as early as you can.",
+   "Many resorts add a <b>mandatory NYE gala dinner</b> to the bill; check before booking.",
+   "<b>Kendwa</b> (north) is the big NYE beach-party scene; the east coast stays much quieter.",
+   "<b>Restaurants and Mnemba trips need reservations</b> over the holiday; walk-ins often fail."]},
+ {em:"🛟",title:"Health & logistics",color:"#7a5cc4",items:[
+   "<b>Keep taking malaria tablets</b> — Zanzibar is malarial; don't stop after the mountain.",
+   "<b>Drink bottled water</b>; the tap isn't potable.",
+   "Zanzibar requires <b>mandatory visitor travel insurance</b> (~US$44) — arrange before arrival.",
+   "Getting there: a short <b>flight from Kilimanjaro / Arusha</b> or ferry from Dar. Cash is USD/TZS; plugs Type D/G."]},
+];
+
+/* ================= RENDER ================= */
+
+function renderCards(el,items){
+  el.innerHTML=items.map(it=>`
+    <div class="card">
+      <div class="top"><h3>${it.name}</h3><div class="tag">${it.tag}</div></div>
+      <div class="body">
+        ${it.kv.map(([k,v])=>`<div class="kv"><span>${k}</span><span>${v}</span></div>`).join('')}
+        <div class="note">${it.note}</div>
+        ${it.pick?`<span class="pick">${it.pick}</span>`:''}
+      </div>
+    </div>`).join('');
+}
+
+function renderZones(el,zones,sMin,sMax){
+  const span=sMax-sMin, pct=v=>((v-sMin)/span)*100;
+  const bar=(lo,hi,grad)=>{const l=pct(lo),w=Math.max(pct(hi)-pct(lo),2.5);
+    return `<div class="bar"><div class="fill" style="left:${l}%;width:${w}%;background:${grad}"></div></div>`;};
+  el.innerHTML=zones.map(z=>`
+    <div class="zone">
+      <div><div class="name">${z.name}</div><div class="alt">${z.alt}</div></div>
+      <div class="zbars">
+        <div class="brow"><span class="blab d">Day</span>${bar(z.day[0],z.day[1],'linear-gradient(90deg,#f6c76b,var(--sun))')}<span class="brange">${z.day[0]}° to ${z.day[1]}°</span></div>
+        <div class="brow"><span class="blab n">Night</span>${bar(z.night[0],z.night[1],'linear-gradient(90deg,#3f4bd6,#8f9bf0)')}<span class="brange">${z.night[0]}° to ${z.night[1]}°</span></div>
+      </div>
+    </div>`).join('');
+}
+
+const BRANDS=[["c","Columbia","var(--columbia)","Columbia"],
+              ["d","Decathlon","var(--decathlon)","Decathlon"],
+              ["m","Mtn Equip.","var(--me)","Mountain Equipment"],
+              ["o","Other","var(--other)",""]];
+const glink=(prefix,name)=>`https://www.google.com/search?q=`+encodeURIComponent((prefix?prefix+" ":"")+name);
+
+function renderClothing(tabsEl,panelsEl,parts,tipHTML){
+  parts.forEach((p,i)=>{
+    const tab=document.createElement('button');
+    tab.className='tab'+(i===0?' active':''); tab.textContent=p.label; tab.dataset.i=i;
+    tabsEl.appendChild(tab);
+    const cards=p.groups.map(g=>{
+      const rows=BRANDS.map(([kk,lbl,col,prefix])=>{
+        const list=g[kk]; if(!list||!list.length) return '';
+        const chips=list.map(n=>`<a class="prod" href="${glink(prefix,n)}" target="_blank" rel="noopener">${n}</a>`).join('');
+        return `<div class="brandrow"><span class="brandtag" style="background:${col}">${lbl}</span><div class="prods">${chips}</div></div>`;
+      }).join('');
+      return `<div class="layer${g.summit?' summit':''}">
+        <div class="lh"><h4>${g.t}</h4>${g.summit?'<span class="sfl">❄ summit</span>':''}</div>
+        <div class="need">${g.need}</div>
+        <div class="picks">${rows}</div>
+      </div>`;
+    }).join('');
+    const panel=document.createElement('div');
+    panel.className='panel'+(i===0?' active':'');
+    panel.innerHTML=`<div class="layers">${cards}</div>
+      ${tipHTML?`<div class="tip"><span class="ico">💡</span><div>${tipHTML}</div></div>`:''}`;
+    panelsEl.appendChild(panel);
+  });
+  tabsEl.addEventListener('click',e=>{
+    const t=e.target.closest('.tab'); if(!t)return;
+    tabsEl.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    panelsEl.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    panelsEl.children[t.dataset.i].classList.add('active');
+  });
+}
+
+function renderTips(el,tips){
+  el.innerHTML=tips.map(t=>`
+    <div class="tipcard" style="--accent:${t.color}">
+      <h3><span class="em">${t.em}</span>${t.title}</h3>
+      <ul>${t.items.map(i=>`<li>${i}</li>`).join('')}</ul>
+    </div>`).join('');
+}
+
+function renderKit(el,kit,store){
+  const state=store?JSON.parse(localStorage.getItem(store)||'{}'):null;
+  el.innerHTML=kit.map((k,ki)=>`<div class="kitcard"><h4>${k.part}${store?' <span class="prog"></span>':''}</h4>
+    <ul>${k.items.map((it,ii)=>{
+      if(!store) return `<li>${it}</li>`;
+      const key=ki+'.'+ii, on=!!state[key];
+      return `<li class="ck${on?' done':''}"><label><input type="checkbox" data-k="${key}"${on?' checked':''}><span>${it}</span></label></li>`;
+    }).join('')}</ul></div>`).join('');
+  if(!store) return;
+  const upd=()=>el.querySelectorAll('.kitcard').forEach(card=>{
+    const bs=[...card.querySelectorAll('input')], done=bs.filter(b=>b.checked).length;
+    const p=card.querySelector('.prog'); p.textContent=`${done}/${bs.length}`;
+    p.classList.toggle('full',done===bs.length);
+  });
+  el.addEventListener('change',e=>{
+    const b=e.target; if(b.type!=='checkbox') return;
+    if(b.checked) state[b.dataset.k]=1; else delete state[b.dataset.k];
+    localStorage.setItem(store,JSON.stringify(state));
+    b.closest('li').classList.toggle('done',b.checked);
+    upd();
+  });
+  upd();
+}
+
+function renderTimeline(el,rows){
+  el.innerHTML=rows.map(r=>`
+    <div class="daycard">
+      <div class="dayb"><div class="dn">${r.when}</div><span class="dz">${r.tag}</span></div>
+      <div class="dayc"><div class="leg">${r.title}</div>
+        <ul class="tl">${r.items.map(i=>`<li>${i}</li>`).join('')}</ul></div>
+    </div>`).join('');
+}
+
+function daysHTML(days){
+  return days.map(d=>`
+    <div class="daycard${d.summit?' summit':''}">
+      <div class="dayb"><div class="dn">${d.d}</div><div class="da">${d.alt}</div><span class="dz">${d.zone}</span></div>
+      <div class="dayc">
+        <div class="leg">${d.leg}</div>
+        <div class="cond">${d.cond}</div>
+        <div class="wear"><b>Wear:</b> ${d.wear}</div>
+        <div class="campn"><b>Camp / note:</b> ${d.camp}</div>
+      </div>
+    </div>`).join('');
+}
+
+function renderDayTabs(tabsEl,panelsEl,routes){
+  routes.forEach((r,i)=>{
+    const tab=document.createElement('button');
+    tab.className='tab'+(i===0?' active':''); tab.textContent=r.label; tab.dataset.i=i;
+    tabsEl.appendChild(tab);
+    const panel=document.createElement('div');
+    panel.className='panel'+(i===0?' active':'');
+    panel.innerHTML=`<div class="days">${daysHTML(r.days)}</div>`;
+    panelsEl.appendChild(panel);
+  });
+  tabsEl.addEventListener('click',e=>{
+    const t=e.target.closest('.tab'); if(!t)return;
+    tabsEl.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    panelsEl.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    panelsEl.children[t.dataset.i].classList.add('active');
+  });
+}
+
+/* Build all trips */
+const $=id=>document.getElementById(id);
+renderTimeline($('p-timeline-list'),prepTimeline);
+renderKit($('p-checklists'),prepChecklists,'tz-prep-checklist');
+renderTips($('z-tips-grid'),zanzibarTips);
+renderCards($('k-routes-cards'),kiliRoutes);
+renderZones($('k-zones'),kiliZones,-25,30);
+renderKit($('k-kit'),kiliKit,'tz-kili-kit');
+renderDayTabs($('k-day-tabs'),$('k-day-panels'),kiliRouteDays);
+renderClothing($('k-tabs'),$('k-panels'),kiliParts,
+  'Hands &amp; feet are the highest frostbite risk on summit night. Rule: <b>liners + mittens</b> for hands; <b>roomy boots + double socks + toe warmers</b> for feet — never trade circulation for extra layers.');
+renderTips($('k-tips-grid'),kiliTips);
+
+renderCards($('s-parks-cards'),safariParks);
+renderZones($('s-zones'),safariZones,0,35);
+renderKit($('s-kit'),safariKit,'tz-safari-kit');
+renderClothing($('s-tabs'),$('s-panels'),safariParts,
+  '<b>Neutral colours only</b> — avoid blue &amp; black (tsetse flies) and white (dust). Pack a fleece + rain shell even in the heat: <b>dawn drives are cold</b>, especially the Ngorongoro rim.');
+renderTips($('s-tips-grid'),safariTips);
+
+/* Trip toggle + section links */
+const SECLINKS={
+  prep:[["#p-timeline","Countdown"],["#p-lists","Checklists"]],
+  kili:[["#k-routes","Routes"],["#k-temps","Temperatures"],["#k-clothing","Clothing & gear"],["#k-tips","Tips & tricks"]],
+  safari:[["#s-parks","Parks"],["#s-climate","Climate"],["#s-clothing","Clothing & shoes"],["#s-tips","Tips & tricks"]],
+  zanzibar:[["#z-overview","Overview"],["#z-tips","Good to know"]],
+};
+const VIEWS=["prep","kili","safari","zanzibar"];
+const seclinksEl=$('seclinks');
+function setTrip(trip){
+  document.body.className=trip;
+  VIEWS.forEach(v=>$('view-'+v).hidden = v!==trip);
+  document.querySelectorAll('.trip').forEach(b=>b.classList.toggle('active',b.dataset.trip===trip));
+  seclinksEl.innerHTML=SECLINKS[trip].map(([h,l])=>`<a href="${h}">${l}</a>`).join('');
+  window.scrollTo({top:0});
+}
+document.querySelectorAll('.trip').forEach(b=>b.addEventListener('click',()=>setTrip(b.dataset.trip)));
+setTrip('prep');
+
+/* Live countdown to the gate */
+(()=>{
+  const days=Math.ceil((new Date('2026-12-14')-Date.now())/864e5);
+  if(days<=0) return;
+  const w=days/7, phase=w>8?'Book & jab':w>4?'Apply & train':w>1?'Confirm':'Pack';
+  const c=$('p-countdown'); c.hidden=false;
+  c.textContent=`⏳ ${days} days to the gate — you're in the “${phase}” window now`;
+})();
+</script>
+</body>
+</html>
